@@ -3,7 +3,7 @@
 import React from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { LayoutDashboard, Ticket, MessageSquare, BookOpen, BarChart3, Settings } from 'lucide-react';
+import { LayoutDashboard, Ticket, MessageSquare, BookOpen, BarChart3, Users, Settings } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const navigation = [
@@ -12,6 +12,7 @@ const navigation = [
   { name: 'Conversations', href: '/conversations', icon: MessageSquare },
   { name: 'Knowledge Base', href: '/kb', icon: BookOpen },
   { name: 'Reports', href: '/reports', icon: BarChart3 },
+  { name: 'CRM', href: '/crm', icon: Users },
   { name: 'Settings', href: '/settings', icon: Settings },
 ];
 
