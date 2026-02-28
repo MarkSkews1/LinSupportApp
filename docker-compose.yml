@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  linsupport:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3009:3009"
+    environment:
+      - NODE_ENV=production
+      - MONGODB_URI=${MONGODB_URI}
+      - KINDE_CLIENT_ID=${KINDE_CLIENT_ID}
+      - KINDE_CLIENT_SECRET=${KINDE_CLIENT_SECRET}
+      - KINDE_ISSUER_URL=${KINDE_ISSUER_URL}
+      - KINDE_SITE_URL=${KINDE_SITE_URL}
+      - KINDE_POST_LOGOUT_REDIRECT_URL=${KINDE_POST_LOGOUT_REDIRECT_URL}
+      - KINDE_POST_LOGIN_REDIRECT_URL=${KINDE_POST_LOGIN_REDIRECT_URL}
+      - KINDE_REDIRECT_URL=${KINDE_REDIRECT_URL}
+      - KINDE_COOKIE_DOMAIN=${KINDE_COOKIE_DOMAIN}
+      - LINCRM_API_URL=${LINCRM_API_URL}
+      - LINCRM_API_KEY=${LINCRM_API_KEY}
+    depends_on:
+      - mongodb
+    restart: unless-stopped
+    networks:
+      - lintech-network
+
+  mongodb:
+    image: mongo:7
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    volumes:
+      - mongodb_data:/data/db
+    restart: unless-stopped
+    networks:
+      - lintech-network
+
+volumes:
+  mongodb_data:
+
+networks:
+  lintech-network:
+    driver: bridge
+

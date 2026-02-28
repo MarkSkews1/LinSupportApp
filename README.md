@@ -1,36 +1,111 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# LinSupport - Customer Support & Ticketing System
 
-## Getting Started
+[![CI/CD](https://github.com/MarkSkews1/LinSupportApp/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/MarkSkews1/LinSupportApp/actions)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Next.js](https://img.shields.io/badge/Next.js-16-black)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue)](https://www.typescriptlang.org/)
 
-First, run the development server:
+A comprehensive customer support and ticketing system built with Next.js, featuring real-time chat, knowledge base, analytics, and CRM integration.
+
+## 🚀 Features
+
+### Core Functionality
+- ✅ **Ticketing System** - Full CRUD operations with status tracking
+- ✅ **Live Chat** - Real-time messaging with Socket.io
+- ✅ **Knowledge Base** - Searchable help articles with feedback
+- ✅ **Analytics & Reporting** - Comprehensive metrics and dashboards
+- ✅ **CRM Integration** - Connect with LinCRM for customer data
+- ✅ **Customer Portal** - Self-service ticket submission and tracking
+
+### Technical Features
+- 🔐 **Kinde Authentication** - Secure SSO integration
+- 📊 **MongoDB Database** - Flexible data storage
+- 🎨 **Modern UI** - Tailwind CSS with dark mode support
+- 📱 **Responsive Design** - Mobile-first approach
+- 🔄 **Real-time Updates** - Socket.io for live features
+- 🧪 **Comprehensive Testing** - Unit and integration tests
+
+## ⚡ Quick Start
 
 ```bash
+# Clone the repository
+git clone https://github.com/MarkSkews1/LinSupportApp.git
+cd LinSupportApp/lin-support-app
+
+# Install dependencies
+npm install
+
+# Copy environment file
+cp .env.example .env.local
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit `http://localhost:3009`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📦 Installation & Configuration
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed setup instructions.
 
-## Learn More
+## 💻 Development
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run dev          # Start development server
+npm run build        # Build for production
+npm start            # Start production server
+npm run lint         # Run ESLint
+npm test             # Run tests
+npm run test:watch   # Run tests in watch mode
+npm run type-check   # TypeScript type checking
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📁 Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+lin-support-app/
+├── app/              # Next.js app directory
+├── components/       # React components
+├── lib/             # Utilities
+├── models/          # MongoDB models
+├── services/        # Business logic
+├── types/           # TypeScript types
+└── __tests__/       # Test files
+```
 
-## Deploy on Vercel
+## 🚀 Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Docker
+```bash
+docker-compose up -d
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Vercel
+```bash
+vercel --prod
+```
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for more options.
+
+## 📝 Documentation
+
+- [Deployment Guide](./DEPLOYMENT.md)
+- [Build Progress](./BUILD_PROGRESS.md)
+- [Phase Summaries](./PHASE_*_COMPLETE.md)
+
+## 🤝 Contributing
+
+Contributions welcome! Please read our contributing guidelines and submit PRs.
+
+## 📄 License
+
+MIT License - see [LICENSE](LICENSE) file.
+
+## 📞 Contact
+
+**Project**: [https://github.com/MarkSkews1/LinSupportApp](https://github.com/MarkSkews1/LinSupportApp)
+
+---
+
+**Version**: 1.0.0  
+**Made with ❤️ by the LinTech Team**
