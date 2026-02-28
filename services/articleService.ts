@@ -1,5 +1,4 @@
 import Article from '@/models/Article';
-import Category from '@/models/Category';
 import connectDB from '@/lib/db/mongodb';
 import { ArticleStatus } from '@/types';
 
@@ -290,4 +289,5 @@ export class ArticleService {
     return Array.from(tagsSet).sort();
   }
 }
+
 

@@ -1,12 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getCurrentUser, getTenantId } from '@/lib/auth';
-import { ArticleService } from '@/services/articleService';
+import { AnalyticsService } from '@/services/analyticsService';
 
-// POST /api/articles/[id]/not-helpful - Mark article as not helpful
-export async function POST(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
+// GET /api/analytics/dashboard - Get dashboard metrics
+export async function GET(request: NextRequest) {
   try {
     const user = await getCurrentUser();
     if (!user) {
@@ -18,13 +15,13 @@ export async function POST(
       return NextResponse.json({ error: 'Tenant ID required' }, { status: 400 });
     }
 
-    const article = await ArticleService.markNotHelpful(params.id, tenantId);
+    const metrics = await AnalyticsService.getDashboardMetrics(tenantId);
 
-    return NextResponse.json({ article });
+    return NextResponse.json({ metrics });
   } catch (error) {
-    console.error('Error marking article not helpful:', error);
+    console.error('Error fetching dashboard metrics:', error);
     return NextResponse.json(
-      { error: 'Failed to mark article as not helpful' },
+      { error: 'Failed to fetch dashboard metrics' },
       { status: 500 }
     );
   }
