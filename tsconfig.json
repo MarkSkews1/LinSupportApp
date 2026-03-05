@@ -19,7 +19,10 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@lintech/user-service": ["../../packages/user-service/src/index.ts"],
+      "@lintech/user-service/client": ["../../packages/user-service/src/client/index.ts"],
+      "@lintech/user-service/server": ["../../packages/user-service/src/server/index.ts"]
     }
   },
   "include": [
