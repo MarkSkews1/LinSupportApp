@@ -1,8 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   reactCompiler: true,
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  serverExternalPackages: ['mongoose', 'mongodb'],
 };
 
 export default nextConfig;

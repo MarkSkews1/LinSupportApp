@@ -1,6 +1,8 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+export const dynamic = 'force-dynamic';
+
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { PortalLayout } from '@/components/portal/PortalLayout';
 import { Card } from '@/components/ui/Card';
@@ -23,7 +25,7 @@ interface Ticket {
   updatedAt: Date;
 }
 
-export default function MyTicketsPage() {
+function MyTicketsContent() {
   const searchParams = useSearchParams();
   const emailFromUrl = searchParams?.get('email') || '';
 
@@ -175,7 +177,10 @@ export default function MyTicketsPage() {
                             <div className="flex items-center gap-4 text-xs text-gray-500 dark:text-gray-400">
                               <span className="flex items-center gap-1">
                                 <Clock className="h-3 w-3" />
-                                Created {formatDistanceToNow(createdDate, { addSuffix: true })}
+                                Created{' '}
+                                {formatDistanceToNow(createdDate, {
+                                  addSuffix: true,
+                                })}
                               </span>
                               <span>•</span>
                               <span>ID: {ticket._id}</span>
@@ -206,3 +211,16 @@ export default function MyTicketsPage() {
   );
 }
 
+export default function MyTicketsPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="container mx-auto px-4 py-12">
+          <Loading size="lg" text="Loading..." />
+        </div>
+      }
+    >
+      <MyTicketsContent />
+    </Suspense>
+  );
+}
